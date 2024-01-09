@@ -1,5 +1,30 @@
 # YouTube-Data-Engineering
 
+## Overview
+
+![Blank diagram](https://github.com/chrisxj33/YouTube-Data-Engineering/assets/53899548/0bb4fd93-a832-4e06-9573-7e1d7d56782f)
+
+#### Key Components and Their Roles
+
+1. **Data Source and Ingestion:**
+   - The raw data is sourced from Kaggle and ingested into AWS using an EC2 instance. This instance runs a Python script to fetch and store data in the AWS S3 'youtube-raw-data-s3' bucket. This step ensures that the latest data from YouTube is consistently available for analysis.
+
+2. **Data Storage and Management:**
+   - The architecture utilizes two S3 buckets: one for raw data and another for cleaned data. Strict access controls and encryption are employed to ensure data security and integrity.
+
+3. **Data Transformation:**
+   - AWS Lambda is used to transform the raw data. The transformation includes normalizing nested JSON structures into a tabular format, making it suitable for querying and analysis. The cleaned data is then stored in the 'youtube-clean-data-s3' bucket.
+
+4. **Data Cataloging and Scheduling:**
+   - AWS Glue Crawlers are configured to catalog the cleaned data, facilitating efficient querying. Amazon EventBridge is used to trigger the Glue Crawlers automatically whenever new data is uploaded to the S3 bucket, ensuring the data catalog is always up-to-date.
+
+5. **Data Querying and Analysis:**
+   - AWS Athena is employed to query the semi-structured data. Example queries include determining the number of unique video categories trending and finding the average number of videos per channel within each category. These queries are crucial for extracting meaningful insights from the dataset.
+
+#### Overall Aim
+
+The architecture aims to create a robust, scalable, and secure pipeline for data ingestion, storage, transformation, and analysis. By leveraging AWS services, it ensures efficient handling of large datasets, enabling deep insights into YouTube video trends and engagement patterns across different regions and categories. The setup is designed to be flexible and adaptive to changes in data structures or requirements, making it a powerful tool for data-driven decision making and trend analysis in the realm of digital content.
+
 ## Data Source
 
 Our primary dataset, "*Trending YouTube Video Statistics*", is sourced from Kaggle. This dataset offers a comprehensive daily snapshot of the most popular YouTube videos across different regions, including the USA, Germany, and others. Each region's data is compiled into individual files. 
