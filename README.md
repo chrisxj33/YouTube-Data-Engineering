@@ -28,7 +28,7 @@ During the creation process, we select the option “Provide user access to the 
 
 Next, we assign the “*AdministratorAccess*” policy to this new user. This policy grants full admin access, which is extensive, though not as broad as the permissions of a root user. This setup ensures the user has sufficient permissions for most tasks while maintaining security best practices. If more strict restrictions are required, the policy can be adjusted. Throughout this project, all tasks will be carried out within the new user account.
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/57cd1c66-0cb8-4464-9b96-b9a1ef63462a/a6a42d7e-13b1-47a3-898c-565c7fb2d775/Untitled.png)
+![image](https://github.com/chrisxj33/YouTube-Data-Engineering/assets/53899548/54cb04ab-3e98-4a0a-bba6-aa989752d562)
 
 ## Creating the S3 Buckets
 
@@ -40,7 +40,7 @@ For this data architecture we will be using two S3 buckets - one for storing the
 
 The resulting buckets are shown below…
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/57cd1c66-0cb8-4464-9b96-b9a1ef63462a/30b61609-f08b-43e0-afd7-ad65ba6b31fe/Untitled.png)
+![image](https://github.com/chrisxj33/YouTube-Data-Engineering/assets/53899548/765a0f60-a967-4d7c-b57f-391a2d3276ba)
 
 ## ****Configuring an EC2 Instance for Data Ingestion****
 
@@ -69,7 +69,7 @@ We will then create an IAM role, *ec2-yt-raw-data-s3-write*, and attach the abov
 
 **Finalizing the EC2 Setup for Data Ingestion:** The EC2 instance will be equipped with Python and all necessary libraries to ensure readiness for running our data ingestion script. Initially, we will manually execute the script on the EC2 instance. This action will populate the *youtube-raw-data-s3*  bucket with data from Kaggle. In cases where the data source is regularly updated (like every 24 hours) we can schedule the script to run automatically. This ensures that our S3 is consistently updated with the latest data.
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/57cd1c66-0cb8-4464-9b96-b9a1ef63462a/505d06e5-53f7-44e6-96a9-82554a32284d/Untitled.png)
+![image](https://github.com/chrisxj33/YouTube-Data-Engineering/assets/53899548/6fde788c-8994-4cf9-8f4e-0a46391473f7)
 
 ## Transforming the Raw Data
 
@@ -159,7 +159,7 @@ GROUP BY "snippet.title"
 ORDER BY VideoCount DESC;
 ```
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/57cd1c66-0cb8-4464-9b96-b9a1ef63462a/23a5c89c-7f33-4710-aceb-051d040792df/Untitled.png)
+![image](https://github.com/chrisxj33/YouTube-Data-Engineering/assets/53899548/ccc36a64-ed34-4f3b-8fbf-edaf9c98cd32)
 
 *Find the average number of videos per channel within each category…*
 
@@ -173,4 +173,5 @@ FROM (
 GROUP BY "snippet.title";
 ```
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/57cd1c66-0cb8-4464-9b96-b9a1ef63462a/91c014ae-4c4d-4b96-b115-adcb03f7788c/Untitled.png)
+![image](https://github.com/chrisxj33/YouTube-Data-Engineering/assets/53899548/5fb7989e-fd77-44a9-8ebc-a4b20e6de6ea)
+
