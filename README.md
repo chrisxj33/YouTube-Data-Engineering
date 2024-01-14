@@ -10,13 +10,13 @@
    - The raw data is sourced from Kaggle and ingested into AWS using an EC2 instance. This instance runs a Python script to fetch and store data in the AWS S3 'youtube-raw-data-s3' bucket. This step ensures that the latest data from YouTube is consistently available for analysis.
 
 2. **Data Storage and Management:**
-   - The architecture utilizes two S3 buckets: one for raw data and another for cleaned data. Strict access controls and encryption are employed to ensure data security and integrity.
+   - The architecture utilizes two S3 buckets: one for raw data and another for cleaned data. The cleaned data S3 bucket will act as our data lakehouse. Strict access controls and encryption are employed to ensure data security and integrity.
 
 3. **Data Transformation:**
    - AWS Lambda is used to transform the raw data. The transformation includes normalizing nested JSON structures into a tabular format, making it suitable for querying and analysis. The cleaned data is then stored in the 'youtube-clean-data-s3' bucket.
 
 4. **Data Cataloging and Scheduling:**
-   - AWS Glue Crawlers are configured to catalog the cleaned data, facilitating efficient querying. Amazon EventBridge is used to trigger the Glue Crawlers automatically whenever new data is uploaded to the S3 bucket, ensuring the data catalog is always up-to-date.
+   - AWS Glue Crawlers are configured to catalog the cleaned data, facilitating the ability for querying. Amazon EventBridge is used to trigger the Glue Crawlers automatically whenever new data is uploaded to the S3 bucket, ensuring the data catalog is always up-to-date.
 
 5. **Data Querying and Analysis:**
    - AWS Athena is employed to query the semi-structured data. Example queries include determining the number of unique video categories trending and finding the average number of videos per channel within each category. These queries are crucial for extracting meaningful insights from the dataset.
