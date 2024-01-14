@@ -23,7 +23,7 @@
 
 ### Overall Aim
 
-The architecture aims to create a robust, scalable, and secure pipeline for data ingestion, storage, transformation, and analysis. By leveraging AWS services, it ensures efficient handling of large datasets, enabling deep insights into YouTube video trends and engagement patterns across different regions and categories. The setup is designed to be flexible and adaptive to changes in data structures or requirements, making it a powerful tool for data-driven decision making and trend analysis in the realm of digital content.
+The architecture aims to create a robust, scalable, and secure pipeline for data ingestion, storage, transformation, and analysis. By leveraging AWS services, it ensures efficient handling of large datasets, enabling deep insights into YouTube video trends and engagement patterns across different regions and categories. The setup is designed to be flexible and adaptive to changes in data structures or requirements, making it a powerful tool for data-driven decision making and trend analysis.
 
 ## Data Source
 
