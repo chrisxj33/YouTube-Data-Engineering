@@ -4,7 +4,7 @@
 
 ![Blank diagram](https://github.com/chrisxj33/YouTube-Data-Engineering/assets/53899548/0bb4fd93-a832-4e06-9573-7e1d7d56782f)
 
-#### Key Components and Their Roles
+### Key Components and Their Roles
 
 1. **Data Source and Ingestion:**
    - The raw data is sourced from Kaggle and ingested into AWS using an EC2 instance. This instance runs a Python script to fetch and store data in the AWS S3 'youtube-raw-data-s3' bucket. This step ensures that the latest data from YouTube is consistently available for analysis.
@@ -21,7 +21,7 @@
 5. **Data Querying and Analysis:**
    - AWS Athena is employed to query the semi-structured data. Example queries include determining the number of unique video categories trending and finding the average number of videos per channel within each category. These queries are crucial for extracting meaningful insights from the dataset.
 
-#### Overall Aim
+### Overall Aim
 
 The architecture aims to create a robust, scalable, and secure pipeline for data ingestion, storage, transformation, and analysis. By leveraging AWS services, it ensures efficient handling of large datasets, enabling deep insights into YouTube video trends and engagement patterns across different regions and categories. The setup is designed to be flexible and adaptive to changes in data structures or requirements, making it a powerful tool for data-driven decision making and trend analysis in the realm of digital content.
 
